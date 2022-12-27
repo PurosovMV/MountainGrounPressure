@@ -1,6 +1,6 @@
-while(true)
+ while(true)
       {
-    Console.WriteLine("Введи коэффициент крепости в массиве: ");
+      Console.WriteLine("Введи коэффициент крепости в массиве: ");
       double f = Convert.ToDouble(Console.ReadLine());
       Console.WriteLine("Введи высоту выработки: ");
       double h = Convert.ToDouble(Console.ReadLine());
@@ -13,9 +13,22 @@ while(true)
       double fi = Math.Round((Math.Atan (f) * 180 / Math.PI), 2);
       double bq =  Math.Round((b+2*h*Math.Tan((45-fi/2)* Math.PI / 180)),3);
       double hq =  Math.Round(bq/(2*f), 3);
-      double bi = (0.3*(b-5.5)/2)+0.7;
+      double bi = 1;   
+      if (b<=5.5)
+      {
+     bi = 0.7;
+      }
+      else if (b>=7.5)
+      {
+       bi = 1;     
+      }
+      else
+          {
+           bi = (0.3*(b-5.5)/2)+0.7;
+          }
+          
       double gqzn = Math.Round((bi*p*9.81*hq), 3);
-      double gqxn = Math.Round((p*9.81*(hq+0.5*h)*Math.Pow(2*Math.Tan(45-fi/2),2)),3);
+      double gqxn = Math.Round((p*9.81*(hq+0.5*h)*Math.Pow(Math.Tan((45-fi/2)* Math.PI / 180),2)),3);
       Console.WriteLine($"φ - кажущийся угол внутреннего трения = {fi}°");
       Console.WriteLine($"bq - пролет свода обрушения = {bq} м");
       Console.WriteLine($"hq - высота свода обрушения = {hq} м");
@@ -111,4 +124,5 @@ while(true)
          double gqzn1 = Math.Round((bi1*p*9.81*hq1), 3);
          Console.WriteLine($"gqzn - нормативное вертикальное горное давление = {gqzn1} кН/м2");
         }
+        
         }
