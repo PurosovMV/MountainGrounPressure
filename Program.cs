@@ -1,4 +1,6 @@
-Console.WriteLine("Введи коэффициент крепости в массиве: ");
+while(true)
+      {
+    Console.WriteLine("Введи коэффициент крепости в массиве: ");
       double f = Convert.ToDouble(Console.ReadLine());
       Console.WriteLine("Введи высоту выработки: ");
       double h = Convert.ToDouble(Console.ReadLine());
@@ -9,7 +11,7 @@ Console.WriteLine("Введи коэффициент крепости в мас�
       if ( f < 4)
         {
       double fi = Math.Round((Math.Atan (f) * 180 / Math.PI), 2);
-      double bq =  Math.Round((b+2*h*2*Math.Tan(45-fi/2)),3);
+      double bq =  Math.Round((b+2*h*Math.Tan((45-fi/2)* Math.PI / 180)),3);
       double hq =  Math.Round(bq/(2*f), 3);
       double bi = (0.3*(b-5.5)/2)+0.7;
       double gqzn = Math.Round((bi*p*9.81*hq), 3);
@@ -109,5 +111,4 @@ Console.WriteLine("Введи коэффициент крепости в мас�
          double gqzn1 = Math.Round((bi1*p*9.81*hq1), 3);
          Console.WriteLine($"gqzn - нормативное вертикальное горное давление = {gqzn1} кН/м2");
         }
-        
-           
+        }
