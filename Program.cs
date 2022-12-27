@@ -1,4 +1,4 @@
- while(true)
+  while(true)
       {
       Console.WriteLine("Введи коэффициент крепости в массиве: ");
       double f = Convert.ToDouble(Console.ReadLine());
@@ -39,7 +39,19 @@
       else if (f >= 4)
       {
         double hq1 = 1;
-        double bi1 = (0.3*(b-5.5)/2)+0.7;
+        double bi1 = 1;   
+      if (b<=5.5)
+      {
+     bi1 = 0.7;
+      }
+      else if (b>=7.5)
+      {
+       bi1 = 1;     
+      }
+      else
+          {
+           bi1 = (0.3*(b-5.5)/2)+0.7;
+          }
         Console.WriteLine("Укажи степень трещиноватости грунта, где 1 - Очень слаботрещиноватые (Mj < 1,5), 2 - Слаботрещиноватые (1,5 ≤ Mj < 5), 3 - Среднетрещиноватые (5 ≤ Mj < 10), 4 - Сильнотрещиноватые (10 ≤ Mj < 30)");
         int crc = int.Parse(Console.ReadLine());
         Console.WriteLine("Укажи способ разработки грунта, где 1 - Механизированный, 2 - Буровзрывной");
